@@ -26,17 +26,17 @@ try {
         }
     }
 
-    await page.goto('https://secure.xserver.ne.jp/xapanel/login/xmgame/game/', { waitUntil: 'networkidle2' })
+    await page.goto('https://secure.xserver.ne.jp/xapanel/login/xmgame/game/', { waitUntil: 'networkidle3' })
     await page.locator('#username').fill(process.env.USERNAME)
     await page.locator('#server_password').fill(process.env.PASSWORD)
     await page.locator('#server_identify').fill(process.env.DOMAIN)
     await page.locator('text=ログインする').click()
-    await page.waitForNavigation({ waitUntil: 'networkidle2' })
+    await page.waitForNavigation({ waitUntil: 'networkidle3' })
     await page.locator('a[href^="/xmgame/game/freeplan/extend/index"]').click()
     await page.locator('text=期限を延長する').click()
     await page.locator('text=確認画面に進む').click()
     await page.locator('text=期限を延長する').click()
-    await page.waitForNavigation({ waitUntil: 'networkidle2' })
+    await page.waitForNavigation({ waitUntil: 'networkidle3' })
 } catch (e) {
     console.error(e)
 } finally {
